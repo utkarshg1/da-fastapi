@@ -1,7 +1,25 @@
 [project]
 name = "da-fastapi"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastAPI + Polars lazy EDA backend"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+  "fastapi>=0.116.0",
+  "uvicorn[standard]>=0.35.0",
+  "polars>=1.30.0",
+  "python-multipart>=0.0.20",
+  "pydantic>=2.11.0",
+  "pydantic-settings>=2.10.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28.0",
+  "pytest>=8.4.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
